@@ -1,32 +1,56 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { ScrollReveal, StaggerReveal } from "@/components/ui/scroll-reveal";
 
 const skills = {
-  Frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Radix UI"],
-  Backend: ["Node.js", "Express", "tRPC", "GraphQL", "PostgreSQL", "Redis"],
-  Tooling: ["Git", "Docker", "GitHub Actions", "Vercel", "AWS", "Figma"],
+  Design: ["Figma", "Framer", "Miro", "Prototyping", "Design Systems", "UI Design"],
+  Research: ["UX Research", "User Testing", "Wireframing", "Information Architecture", "Heuristic Evaluation"],
+  Collaboration: ["Agile / Scrum", "Cross-functional Teams", "Design Reviews", "Stakeholder Alignment"],
 };
 
 const timeline = [
   {
-    year: "2023–Now",
-    role: "Senior Full-Stack Engineer",
-    company: "Acme Corp",
-    desc: "Leading frontend architecture and design system efforts for a B2B SaaS platform.",
+    year: "May 2025 – Now",
+    role: "Lead Product Designer",
+    company: "Synapsis · Jakarta, INA",
+    desc: "Leading product design direction at one of Indonesia's leading SaaS companies, driving consistency and scalability across product lines.",
     accent: "var(--accent-blue)",
   },
   {
-    year: "2021–2023",
-    role: "Full-Stack Developer",
-    company: "Startup XYZ",
-    desc: "Built consumer mobile apps from 0 → 1 and scaled them to 50k daily active users.",
+    year: "Feb 2025 – May 2025",
+    role: "Senior Product Designer",
+    company: "Synapsis · Jakarta, INA",
+    desc: "Elevated design standards and mentored junior designers while shipping high-impact features across the product suite.",
+    accent: "var(--accent-blue)",
+  },
+  {
+    year: "Apr 2024 – Feb 2025",
+    role: "Product Designer",
+    company: "Synapsis · Jakarta, INA",
+    desc: "Designed end-to-end product experiences for complex B2B healthcare SaaS workflows.",
     accent: "var(--accent-orange)",
   },
   {
-    year: "2019–2021",
-    role: "Frontend Engineer",
-    company: "Agency Co.",
-    desc: "Delivered bespoke web experiences for clients across e-commerce and media.",
+    year: "Feb 2024 – Apr 2024",
+    role: "Lead Product Designer",
+    company: "Fullstack Agency · Jakarta, INA",
+    desc: "Led design within a fast-paced agency environment, overseeing multiple client projects simultaneously.",
+    accent: "var(--accent-orange)",
+  },
+  {
+    year: "Jul 2021 – Feb 2024",
+    role: "Product Designer",
+    company: "Fullstack Agency · Jakarta, INA",
+    desc: "Delivered bespoke digital experiences across industries including fintech, e-commerce, healthcare, and more.",
+    accent: "var(--accent-green)",
+  },
+  {
+    year: "Jan 2021 – Jul 2021",
+    role: "UI Designer",
+    company: "Upwork / Freelance · Remote",
+    desc: "Worked with international clients to deliver polished UI designs for web and mobile products.",
     accent: "var(--accent-green)",
   },
 ];
@@ -34,22 +58,27 @@ const timeline = [
 export function About() {
   return (
     <section id="about" className="py-20">
-      <div className="mb-2 text-sm font-medium" style={{ color: "var(--accent-orange)" }}>
-        Background
-      </div>
-      <h2 className="mb-3 text-3xl font-bold tracking-tight">About me</h2>
-      <p className="mb-4 max-w-xl leading-relaxed text-muted-foreground">
-        I&apos;m a full-stack developer with 6+ years of experience building products
-        across web and mobile. I care deeply about developer experience, design details,
-        and writing code that&apos;s a joy to maintain.
-      </p>
-      <p className="mb-12 max-w-xl leading-relaxed text-muted-foreground">
-        When I&apos;m not coding, you&apos;ll find me reading about typography, contributing to
-        open source, or exploring the outdoors.
-      </p>
+      <ScrollReveal direction="up">
+        <div className="mb-2 text-sm font-medium" style={{ color: "var(--accent-orange)" }}>
+          Background
+        </div>
+        <h2 className="mb-3 text-3xl font-bold tracking-tight">About me</h2>
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.1} direction="up">
+        <p className="mb-4 max-w-xl leading-relaxed text-muted-foreground">
+          Product Designer with 4 years of experience balancing bold visuals with user-focused
+          thinking on every project. Always ahead of UX/UI trends — shaped by agency excellence,
+          sharpened at one of Indonesia&apos;s leading SaaS companies.
+        </p>
+        <p className="mb-12 max-w-xl leading-relaxed text-muted-foreground">
+          I care deeply about systematizing complexity into clear, scalable components and
+          creating human-centered experiences that feel intuitive and delightful.
+        </p>
+      </ScrollReveal>
 
       {/* Skills */}
-      <div className="mb-14 grid gap-8 sm:grid-cols-3">
+      <StaggerReveal className="mb-14 grid gap-8 sm:grid-cols-3" staggerDelay={0.12}>
         {Object.entries(skills).map(([category, items]) => (
           <div key={category}>
             <p className="mb-3 text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
@@ -68,34 +97,37 @@ export function About() {
             </div>
           </div>
         ))}
-      </div>
+      </StaggerReveal>
 
-      <Separator className="mb-12" />
+      <ScrollReveal direction="none">
+        <Separator className="mb-12" />
+      </ScrollReveal>
 
       {/* Timeline */}
-      <div>
+      <ScrollReveal direction="up">
         <p className="mb-6 text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
           Experience
         </p>
-        <div className="flex flex-col gap-8">
-          {timeline.map((item, i) => (
-            <div key={i} className="flex gap-5">
-              <div
-                className="mt-1 h-2 w-2 shrink-0 rounded-full"
-                style={{ backgroundColor: item.accent }}
-              />
-              <div>
-                <p className="text-xs text-muted-foreground">{item.year}</p>
-                <p className="mt-0.5 font-semibold">{item.role}</p>
-                <p className="text-sm" style={{ color: item.accent }}>
-                  {item.company}
-                </p>
-                <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
-              </div>
+      </ScrollReveal>
+
+      <StaggerReveal className="flex flex-col gap-8" staggerDelay={0.1}>
+        {timeline.map((item, i) => (
+          <div key={i} className="flex gap-5">
+            <div
+              className="mt-1 h-2 w-2 shrink-0 rounded-full"
+              style={{ backgroundColor: item.accent }}
+            />
+            <div>
+              <p className="text-xs text-muted-foreground">{item.year}</p>
+              <p className="mt-0.5 font-semibold">{item.role}</p>
+              <p className="text-sm" style={{ color: item.accent }}>
+                {item.company}
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        ))}
+      </StaggerReveal>
     </section>
   );
 }

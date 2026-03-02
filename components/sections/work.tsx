@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -9,58 +11,75 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ExternalLink, Github } from "lucide-react";
+import { ScrollReveal, StaggerReveal } from "@/components/ui/scroll-reveal";
+import { ExternalLink } from "lucide-react";
 
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "Retina Design System",
     description:
-      "A full-stack e-commerce solution with real-time inventory, Stripe payments, and an admin dashboard built for scale.",
-    tags: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-    category: "web",
+      "Systematizing complexity into clear, scalable components. A comprehensive design system built to unify product experiences across the platform.",
+    tags: ["Design Systems", "Figma", "Component Library", "Documentation"],
+    category: "system",
     accent: "var(--accent-blue)",
-    live: "#",
-    github: "#",
+    live: "https://is.gd/FarhandysDesignWork",
   },
   {
     id: 2,
-    title: "Design System",
+    title: "UX Sync — Pull to Refresh",
     description:
-      "A comprehensive component library with Storybook documentation, dark mode support, and accessibility-first patterns.",
-    tags: ["React", "Tailwind CSS", "Storybook", "Radix UI"],
-    category: "design",
+      "Enhancing mobile interaction with smooth, intuitive sync. A human-centered micro-interaction pattern that improves perceived performance and delight.",
+    tags: ["Mobile UX", "Interaction Design", "Figma", "Prototyping"],
+    category: "mobile",
     accent: "var(--accent-orange)",
-    live: "#",
-    github: "#",
+    live: "https://is.gd/FarhandysDesignWork",
   },
   {
     id: 3,
-    title: "Mobile Finance App",
+    title: "Personalized Messaging in Banking",
     description:
-      "Cross-platform budgeting app with real-time sync, biometric auth, and personalised spending insights.",
-    tags: ["React Native", "Expo", "Supabase", "Reanimated"],
+      "A human-centered approach to financial notifications — turning generic alerts into meaningful, contextual messages that build trust.",
+    tags: ["Fintech", "UX Writing", "Mobile Design", "User Research"],
     category: "mobile",
     accent: "var(--accent-green)",
-    live: "#",
-    github: "#",
+    live: "https://is.gd/FarhandysDesignWork",
   },
   {
     id: 4,
-    title: "AI Content Tool",
+    title: "PetPal — Pet Care Landing Page",
     description:
-      "LLM-powered writing assistant that generates, edits, and repurposes long-form content with one click.",
-    tags: ["Next.js", "OpenAI", "tRPC", "Prisma"],
+      "A warm, inviting landing page for a pet care service. Focused on emotional connection, clear hierarchy, and conversion-driven layout.",
+    tags: ["Landing Page", "Web Design", "Figma", "UI Design"],
     category: "web",
     accent: "var(--accent-blue)",
-    live: "#",
-    github: "#",
+    live: "https://dribbble.com/farhandy",
+  },
+  {
+    id: 5,
+    title: "Telemedicine — Mayo Clinic Concept",
+    description:
+      "A concept redesign of a telemedicine platform prioritizing accessibility, clarity, and intuitive patient flows.",
+    tags: ["Healthcare", "Telemedicine", "UX Design", "Figma"],
+    category: "mobile",
+    accent: "var(--accent-orange)",
+    live: "https://dribbble.com/farhandy",
+  },
+  {
+    id: 6,
+    title: "E-commerce Furniture Store",
+    description:
+      "A minimal, premium e-commerce UI for a furniture brand. Emphasis on product photography, smooth navigation and browsing experience.",
+    tags: ["E-commerce", "Web Design", "UI Design", "Figma"],
+    category: "web",
+    accent: "var(--accent-green)",
+    live: "https://dribbble.com/farhandy",
   },
 ];
 
 function ProjectCard({ project }: { project: (typeof projects)[0] }) {
   return (
-    <Card className="flex flex-col overflow-hidden transition-shadow hover:shadow-lg">
+    <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
       {/* Coloured top bar */}
       <div className="h-1 w-full" style={{ backgroundColor: project.accent }} />
 
@@ -83,15 +102,9 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
 
       <CardFooter className="flex gap-2 border-t pt-4">
         <Button asChild variant="ghost" size="sm" className="h-8 gap-1.5 text-xs">
-          <a href={project.github} target="_blank" rel="noopener noreferrer">
-            <Github className="h-3.5 w-3.5" />
-            Code
-          </a>
-        </Button>
-        <Button asChild variant="ghost" size="sm" className="h-8 gap-1.5 text-xs">
           <a href={project.live} target="_blank" rel="noopener noreferrer">
             <ExternalLink className="h-3.5 w-3.5" />
-            Live
+            View Work
           </a>
         </Button>
       </CardFooter>
@@ -99,45 +112,50 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
   );
 }
 
+function ProjectGrid({ items }: { items: typeof projects }) {
+  return (
+    <StaggerReveal className="grid gap-5 sm:grid-cols-2" staggerDelay={0.1}>
+      {items.map((p) => (
+        <ProjectCard key={p.id} project={p} />
+      ))}
+    </StaggerReveal>
+  );
+}
+
 export function Work() {
-  const categories = ["all", "web", "mobile", "design"] as const;
+  const categories = ["all", "web", "mobile", "system"] as const;
 
   return (
     <section id="work" className="py-20">
-      <div className="mb-2 text-sm font-medium" style={{ color: "var(--accent-blue)" }}>
-        Selected work
-      </div>
-      <h2 className="mb-3 text-3xl font-bold tracking-tight">Projects</h2>
-      <p className="mb-10 max-w-lg text-muted-foreground">
-        A collection of things I&apos;ve built — from side projects to production apps.
-      </p>
+      <ScrollReveal direction="up">
+        <div className="mb-2 text-sm font-medium" style={{ color: "var(--accent-blue)" }}>
+          Selected work
+        </div>
+        <h2 className="mb-3 text-3xl font-bold tracking-tight">Projects</h2>
+        <p className="mb-10 max-w-lg text-muted-foreground">
+          A collection of things I&apos;ve designed — from design systems to product experiences
+          and everything in between.
+        </p>
+      </ScrollReveal>
 
       <Tabs defaultValue="all">
-        <TabsList className="mb-8 rounded-full">
-          {categories.map((cat) => (
-            <TabsTrigger key={cat} value={cat} className="rounded-full capitalize">
-              {cat}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+        <ScrollReveal direction="up" delay={0.1}>
+          <TabsList className="mb-8 rounded-full">
+            {categories.map((cat) => (
+              <TabsTrigger key={cat} value={cat} className="rounded-full capitalize">
+                {cat}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </ScrollReveal>
 
         <TabsContent value="all">
-          <div className="grid gap-5 sm:grid-cols-2">
-            {projects.map((p) => (
-              <ProjectCard key={p.id} project={p} />
-            ))}
-          </div>
+          <ProjectGrid items={projects} />
         </TabsContent>
 
-        {(["web", "mobile", "design"] as const).map((cat) => (
+        {(["web", "mobile", "system"] as const).map((cat) => (
           <TabsContent key={cat} value={cat}>
-            <div className="grid gap-5 sm:grid-cols-2">
-              {projects
-                .filter((p) => p.category === cat)
-                .map((p) => (
-                  <ProjectCard key={p.id} project={p} />
-                ))}
-            </div>
+            <ProjectGrid items={projects.filter((p) => p.category === cat)} />
           </TabsContent>
         ))}
       </Tabs>

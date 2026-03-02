@@ -22,12 +22,12 @@ export function Header() {
       {/* Left: mobile menu */}
       <div className="flex items-center gap-3 md:hidden">
         <MobileNav />
-        <span className="text-sm font-semibold tracking-tight">John Doe</span>
+        <span className="text-sm font-semibold tracking-tight">Farhandy Akbar</span>
       </div>
 
       {/* Left: name on desktop */}
       <span className="hidden text-sm font-semibold tracking-tight md:block">
-        John Doe
+        Farhandy Akbar
       </span>
 
       {/* Right: availability badge + theme toggle */}
