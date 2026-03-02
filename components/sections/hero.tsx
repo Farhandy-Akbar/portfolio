@@ -1,91 +1,89 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ScrollReveal, StaggerReveal } from "@/components/ui/scroll-reveal";
-import { ArrowDown, Mail } from "lucide-react";
+import { ArrowUpRight } from "@phosphor-icons/react";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
+
+const tags = ["Product Design", "Figma", "Miro", "Framer", "UX Research", "Design Systems"];
 
 export function Hero() {
   return (
-    <section id="hero" className="flex min-h-[80vh] flex-col justify-center pt-20 pb-16">
-      {/* Avatar + status */}
+    <section id="hero" className="flex min-h-[85vh] flex-col justify-center py-20">
+      {/* Status */}
       <ScrollReveal delay={0} direction="up">
-        <div className="mb-8 flex items-center gap-4">
-          <Avatar className="h-14 w-14 ring-2 ring-[var(--accent-blue)]">
-            <AvatarImage src="/avatar.jpg" alt="Farhandy Akbar" />
-            <AvatarFallback
-              className="text-lg font-semibold"
-              style={{ backgroundColor: "var(--surface-alt)", color: "var(--accent-blue)" }}
-            >
-              FA
-            </AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="text-sm text-muted-foreground">Hello, I&apos;m</p>
-            <p className="font-semibold">Farhandy Akbar</p>
-          </div>
+        <div className="mb-10 flex items-center gap-2">
+          <span
+            className="inline-block h-1.5 w-1.5 rounded-full"
+            style={{ backgroundColor: "#c5ff41" }}
+          />
+          <span className="text-xs font-medium tracking-wide" style={{ color: "rgba(238,239,244,0.45)" }}>
+            Available for work · Jakarta, Indonesia
+          </span>
         </div>
       </ScrollReveal>
 
       {/* Headline */}
-      <ScrollReveal delay={0.1} direction="up">
-        <h1 className="mb-6 max-w-2xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+      <ScrollReveal delay={0.08} direction="up">
+        <h1
+          className="mb-6 max-w-2xl text-5xl font-semibold leading-[1.08] sm:text-6xl lg:text-7xl"
+          style={{ color: "#eeeff4", letterSpacing: "-0.03em" }}
+        >
           Balancing bold{" "}
-          <span style={{ color: "var(--accent-blue)" }}>visuals</span>{" "}
+          <span style={{ color: "#0e4ff6" }}>visuals</span>{" "}
           with user-focused thinking.
         </h1>
       </ScrollReveal>
 
       {/* Sub-headline */}
-      <ScrollReveal delay={0.2} direction="up">
-        <p className="mb-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Product Designer with 4+ years of experience. Brought ideas to life alongside
-          top-tier teams — shaped by agency excellence, sharpened at one of Indonesia&apos;s
-          leading SaaS companies.
+      <ScrollReveal delay={0.16} direction="up">
+        <p
+          className="mb-10 max-w-lg text-base leading-relaxed sm:text-lg"
+          style={{ color: "rgba(238,239,244,0.5)" }}
+        >
+          Product Designer with 4+ years of experience. Shaped by agency excellence,
+          sharpened at one of Indonesia&apos;s leading SaaS companies.
         </p>
       </ScrollReveal>
 
-      {/* Badges */}
-      <ScrollReveal delay={0.3} direction="up">
-        <div className="mb-10 flex flex-wrap gap-2">
-          {["Product Design", "Figma", "Miro", "Framer", "UX Research", "Design Systems"].map((tag) => (
-            <Badge
+      {/* Tags */}
+      <ScrollReveal delay={0.22} direction="up">
+        <div className="mb-12 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <span
               key={tag}
-              variant="secondary"
-              className="rounded-full px-3 py-1 text-xs"
+              className="rounded-full px-3 py-1 text-xs font-medium"
+              style={{
+                backgroundColor: "rgba(255,255,255,0.05)",
+                color: "rgba(238,239,244,0.55)",
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}
             >
               {tag}
-            </Badge>
+            </span>
           ))}
         </div>
       </ScrollReveal>
 
-      {/* CTA buttons */}
-      <ScrollReveal delay={0.4} direction="up">
-        <div className="flex flex-wrap gap-3">
-          <Button
-            asChild
-            size="lg"
-            className="rounded-full font-medium"
-            style={{ backgroundColor: "var(--accent-blue)", color: "#fff" }}
+      {/* CTAs */}
+      <ScrollReveal delay={0.3} direction="up">
+        <div className="flex flex-wrap items-center gap-4">
+          <a
+            href="#work"
+            className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-opacity hover:opacity-80"
+            style={{ backgroundColor: "#0e4ff6", color: "#fff" }}
           >
-            <a href="#work">
-              View my work
-              <ArrowDown className="ml-2 h-4 w-4" />
-            </a>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="rounded-full font-medium"
+            View my work
+            <ArrowUpRight size={14} weight="bold" />
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 text-sm font-medium transition-colors"
+            style={{ color: "rgba(238,239,244,0.55)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#eeeff4")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(238,239,244,0.55)")}
           >
-            <a href="#contact">
-              <Mail className="mr-2 h-4 w-4" />
-              Get in touch
-            </a>
-          </Button>
+            Get in touch
+            <ArrowUpRight size={14} weight="bold" />
+          </a>
         </div>
       </ScrollReveal>
     </section>

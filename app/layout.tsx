@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { Header } from "@/components/layout/header";
 import { Sidebar } from "@/components/layout/sidebar";
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-title",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
+import { NotificationBar } from "@/components/layout/notification-bar";
 
 const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
   display: "swap",
 });
 
@@ -32,13 +33,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${plusJakartaSans.variable} ${inter.variable} antialiased`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
         <Providers>
           {/* Fixed top header */}
           <Header />
 
+          {/* Blue notification bar below header */}
+          <NotificationBar />
+
           {/* Page shell: sidebar + main */}
-          <div className="flex pt-11" style={{ minHeight: "100vh" }}>
+          {/* pt-[74px] = header (44px) + notification bar (30px) */}
+          <div className="flex" style={{ minHeight: "100vh", paddingTop: "74px" }}>
             <Sidebar />
 
             {/* Main content */}
