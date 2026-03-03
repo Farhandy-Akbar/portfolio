@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { Header } from "@/components/layout/header";
 import { Sidebar } from "@/components/layout/sidebar";
-import { NotificationBar } from "@/components/layout/notification-bar";
 
 const inter = Inter({
   variable: "--font-body",
@@ -17,6 +16,14 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   weight: ["300", "400", "500"],
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -33,17 +40,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} antialiased`}>
         <Providers>
           {/* Fixed top header */}
           <Header />
 
-          {/* Blue notification bar below header */}
-          <NotificationBar />
-
           {/* Page shell: sidebar + main */}
-          {/* pt-[74px] = header (44px) + notification bar (30px) */}
-          <div className="flex" style={{ minHeight: "100vh", paddingTop: "74px" }}>
+          {/* pt-[44px] = header height */}
+          <div className="flex" style={{ minHeight: "100vh", paddingTop: "44px" }}>
             <Sidebar />
 
             {/* Main content */}

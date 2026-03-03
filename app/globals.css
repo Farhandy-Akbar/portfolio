@@ -100,8 +100,8 @@
 
 .dark {
   /* shadcn base — dark mode */
-  --background: oklch(0.11 0.004 285.82);
-  --foreground: oklch(0.985 0 0);
+  --background: #121212;
+  --foreground: #f7f7f7;
   --card: oklch(0.16 0.005 285.88);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.16 0.005 285.88);
@@ -133,11 +133,11 @@
   --sidebar-ring: oklch(0.552 0.016 285.94);
 
   /* Portfolio custom — dark mode */
-  --accent-blue: #0e4ff6;
-  --accent-orange: #f46c38;
-  --accent-green: #c5ff41;
-  --surface: #202020;
-  --surface-alt: #2c2c2c;
+  --accent-blue: #3dc8ff;
+  --accent-orange: #faa200;
+  --accent-green: #16bf5e;
+  --surface: #1e1e1e;
+  --surface-alt: #2a2a2a;
 }
 
 @layer base {

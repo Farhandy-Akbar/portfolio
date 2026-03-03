@@ -46,9 +46,15 @@ export function MobileNav() {
           <List size={16} weight="regular" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-64 pt-8">
+      <SheetContent
+        side="left"
+        className="w-64 pt-8"
+        style={{ backgroundColor: "#121212", borderRight: "1px solid rgba(255,255,255,0.06)" }}
+      >
         <SheetHeader>
-          <SheetTitle className="text-left text-base">Farhandy Akbar</SheetTitle>
+          <SheetTitle className="text-left text-base" style={{ color: "#f7f7f7" }}>
+            Farhandy Akbar
+          </SheetTitle>
         </SheetHeader>
         <nav className="mt-8 flex flex-col gap-0.5">
           {navLinks.map(({ label, href, icon: Icon }) => (
@@ -57,7 +63,9 @@ export function MobileNav() {
               href={href}
               onClick={() => setOpen(false)}
               className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm transition-colors"
-              style={{ color: "rgba(238,239,244,0.55)" }}
+              style={{ color: "rgba(247,247,247,0.55)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#f7f7f7")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(247,247,247,0.55)")}
             >
               <Icon size={14} weight="regular" />
               {label}
@@ -73,7 +81,9 @@ export function MobileNav() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm transition-colors"
-              style={{ color: "rgba(238,239,244,0.55)" }}
+              style={{ color: "rgba(247,247,247,0.55)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#f7f7f7")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(247,247,247,0.55)")}
             >
               <Icon size={14} weight="regular" />
               {label}

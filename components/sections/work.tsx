@@ -13,7 +13,8 @@ const projects = [
     tags: ["Design Systems", "Figma", "Component Library"],
     category: "system",
     year: "2024",
-    accent: "#0e4ff6",
+    accent: "#3dc8ff",
+    thumbGlow: "rgba(61,200,255,0.12)",
     live: "https://is.gd/FarhandysDesignWork",
   },
   {
@@ -24,7 +25,8 @@ const projects = [
     tags: ["Mobile UX", "Interaction Design", "Prototyping"],
     category: "mobile",
     year: "2024",
-    accent: "#f46c38",
+    accent: "#faa200",
+    thumbGlow: "rgba(250,162,0,0.12)",
     live: "https://is.gd/FarhandysDesignWork",
   },
   {
@@ -35,7 +37,8 @@ const projects = [
     tags: ["Fintech", "UX Writing", "Mobile Design"],
     category: "mobile",
     year: "2023",
-    accent: "#c5ff41",
+    accent: "#16bf5e",
+    thumbGlow: "rgba(22,191,94,0.12)",
     live: "https://is.gd/FarhandysDesignWork",
   },
   {
@@ -46,7 +49,8 @@ const projects = [
     tags: ["Landing Page", "Web Design", "UI Design"],
     category: "web",
     year: "2023",
-    accent: "#0e4ff6",
+    accent: "#3dc8ff",
+    thumbGlow: "rgba(61,200,255,0.12)",
     live: "https://dribbble.com/farhandy",
   },
   {
@@ -57,7 +61,8 @@ const projects = [
     tags: ["Healthcare", "Telemedicine", "UX Design"],
     category: "mobile",
     year: "2022",
-    accent: "#f46c38",
+    accent: "#faa200",
+    thumbGlow: "rgba(250,162,0,0.12)",
     live: "https://dribbble.com/farhandy",
   },
   {
@@ -68,7 +73,8 @@ const projects = [
     tags: ["E-commerce", "Web Design", "UI Design"],
     category: "web",
     year: "2022",
-    accent: "#c5ff41",
+    accent: "#16bf5e",
+    thumbGlow: "rgba(22,191,94,0.12)",
     live: "https://dribbble.com/farhandy",
   },
 ];
@@ -85,16 +91,16 @@ export function Work() {
     <section id="work" className="py-20">
       {/* Header */}
       <ScrollReveal direction="up">
-        <div className="mb-1 text-xs font-medium tracking-widest uppercase" style={{ color: "#0e4ff6" }}>
+        <div className="mb-1 text-xs font-medium tracking-widest uppercase" style={{ color: "#3dc8ff" }}>
           Selected work
         </div>
         <h2
           className="mb-3 text-3xl font-semibold"
-          style={{ color: "#eeeff4", letterSpacing: "-0.02em" }}
+          style={{ color: "#f7f7f7", letterSpacing: "-0.02em" }}
         >
           Projects
         </h2>
-        <p className="mb-10 max-w-lg text-sm leading-relaxed" style={{ color: "rgba(238,239,244,0.45)" }}>
+        <p className="mb-10 max-w-lg text-sm leading-relaxed" style={{ color: "rgba(247,247,247,0.45)" }}>
           A collection of things I&apos;ve designed — from design systems to product experiences
           and everything in between.
         </p>
@@ -110,10 +116,10 @@ export function Work() {
               className="rounded-full px-3.5 py-1.5 text-xs font-medium capitalize transition-all"
               style={
                 active === cat
-                  ? { backgroundColor: "#0e4ff6", color: "#fff" }
+                  ? { backgroundColor: "#3dc8ff", color: "#121212" }
                   : {
                       backgroundColor: "rgba(255,255,255,0.04)",
-                      color: "rgba(238,239,244,0.45)",
+                      color: "rgba(247,247,247,0.45)",
                       border: "1px solid rgba(255,255,255,0.06)",
                     }
               }
@@ -124,55 +130,78 @@ export function Work() {
         </div>
       </ScrollReveal>
 
-      {/* Project list */}
-      <StaggerReveal className="flex flex-col" staggerDelay={0.07}>
+      {/* Project grid */}
+      <StaggerReveal className="grid gap-4 sm:grid-cols-2" staggerDelay={0.07}>
         {filtered.map((project) => (
           <a
             key={project.id}
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col gap-2 border-t py-6 transition-all sm:flex-row sm:items-start sm:gap-8"
-            style={{ borderColor: "rgba(255,255,255,0.07)" }}
+            className="group flex flex-col overflow-hidden rounded-2xl transition-all hover:scale-[1.01]"
+            style={{
+              backgroundColor: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.07)",
+            }}
           >
-            {/* Year */}
-            <span
-              className="w-16 shrink-0 pt-0.5 text-xs"
+            {/* Thumbnail */}
+            <div
+              className="relative h-44 w-full overflow-hidden"
               style={{
-                color: "rgba(238,239,244,0.28)",
-                fontFamily: "var(--font-mono), JetBrains Mono, monospace",
+                background: `radial-gradient(ellipse at 70% 30%, ${project.thumbGlow} 0%, transparent 70%), #1a1a1a`,
               }}
             >
-              {project.year}
-            </span>
-
-            {/* Content */}
-            <div className="flex-1">
-              <div className="mb-1 flex items-center justify-between gap-4">
-                <h3
-                  className="text-base font-medium transition-colors group-hover:text-white"
-                  style={{ color: "#eeeff4" }}
-                >
-                  {project.title}
-                </h3>
-                <ArrowUpRight
-                  size={16}
-                  weight="regular"
-                  className="shrink-0 opacity-0 transition-opacity group-hover:opacity-60"
-                  style={{ color: "#eeeff4" }}
+              {/* Abstract UI mockup lines */}
+              <div className="absolute inset-0 flex flex-col justify-end p-5 pb-4">
+                <div
+                  className="mb-2 h-1 w-8 rounded-full opacity-30"
+                  style={{ backgroundColor: project.accent }}
+                />
+                <div
+                  className="mb-1.5 h-3 w-40 rounded opacity-15"
+                  style={{ backgroundColor: project.accent }}
+                />
+                <div
+                  className="h-2 w-24 rounded opacity-10"
+                  style={{ backgroundColor: project.accent }}
                 />
               </div>
-              <p className="mb-3 text-sm leading-relaxed" style={{ color: "rgba(238,239,244,0.45)" }}>
+              {/* Year badge */}
+              <span
+                className="absolute right-4 top-4 rounded-full px-2 py-0.5 text-[10px] font-medium"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.06)",
+                  color: "rgba(247,247,247,0.4)",
+                  fontFamily: "var(--font-mono)",
+                }}
+              >
+                {project.year}
+              </span>
+              {/* Arrow */}
+              <div className="absolute left-4 top-4 opacity-0 transition-opacity group-hover:opacity-60">
+                <ArrowUpRight size={16} weight="regular" style={{ color: "#f7f7f7" }} />
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="flex flex-1 flex-col p-5">
+              <h3
+                className="mb-1.5 text-sm font-medium transition-colors group-hover:text-white"
+                style={{ color: "#f7f7f7" }}
+              >
+                {project.title}
+              </h3>
+              <p className="mb-4 flex-1 text-xs leading-relaxed" style={{ color: "rgba(247,247,247,0.45)" }}>
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full px-2.5 py-0.5 text-xs"
+                    className="rounded-full px-2.5 py-0.5 text-[10px]"
                     style={{
                       backgroundColor: "rgba(255,255,255,0.04)",
-                      color: "rgba(238,239,244,0.4)",
+                      color: "rgba(247,247,247,0.4)",
                       border: "1px solid rgba(255,255,255,0.06)",
                     }}
                   >
@@ -183,9 +212,6 @@ export function Work() {
             </div>
           </a>
         ))}
-
-        {/* Last border */}
-        <div className="h-px" style={{ backgroundColor: "rgba(255,255,255,0.07)" }} />
       </StaggerReveal>
     </section>
   );

@@ -45,16 +45,16 @@ export function Contact() {
   return (
     <section id="contact" className="py-20 pb-32">
       <ScrollReveal direction="up">
-        <div className="mb-1 text-xs font-medium tracking-widest uppercase" style={{ color: "#c5ff41" }}>
+        <div className="mb-1 text-xs font-medium tracking-widest uppercase" style={{ color: "#16bf5e" }}>
           Get in touch
         </div>
         <h2
           className="mb-3 text-3xl font-semibold"
-          style={{ color: "#eeeff4", letterSpacing: "-0.02em" }}
+          style={{ color: "#f7f7f7", letterSpacing: "-0.02em" }}
         >
           Contact
         </h2>
-        <p className="mb-12 max-w-lg text-sm leading-relaxed" style={{ color: "rgba(238,239,244,0.45)" }}>
+        <p className="mb-12 max-w-lg text-sm leading-relaxed" style={{ color: "rgba(247,247,247,0.45)" }}>
           Open to new opportunities, collaborations, or a friendly hello. Drop me a message
           and I&apos;ll get back to you promptly.
         </p>
@@ -72,14 +72,14 @@ export function Contact() {
           <div>
             <p
               className="mb-0.5 text-[10px] font-medium uppercase tracking-widest"
-              style={{ color: "rgba(238,239,244,0.3)" }}
+              style={{ color: "rgba(247,247,247,0.3)" }}
             >
               Email
             </p>
             <a
               href={`mailto:${EMAIL}`}
               className="text-sm font-medium transition-colors hover:opacity-80"
-              style={{ color: "#0e4ff6" }}
+              style={{ color: "#3dc8ff" }}
             >
               {EMAIL}
             </a>
@@ -90,7 +90,7 @@ export function Contact() {
             className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium transition-all hover:opacity-80"
             style={{
               backgroundColor: "rgba(255,255,255,0.06)",
-              color: "rgba(238,239,244,0.6)",
+              color: "rgba(247,247,247,0.6)",
               border: "1px solid rgba(255,255,255,0.08)",
             }}
           >
@@ -124,13 +124,13 @@ export function Contact() {
               <Icon
                 size={16}
                 weight="regular"
-                style={{ color: "rgba(238,239,244,0.3)" }}
+                style={{ color: "rgba(247,247,247,0.3)" }}
               />
               <div>
-                <p className="text-sm font-medium" style={{ color: "#eeeff4" }}>
+                <p className="text-sm font-medium" style={{ color: "#f7f7f7" }}>
                   {label}
                 </p>
-                <p className="text-xs" style={{ color: "rgba(238,239,244,0.35)" }}>
+                <p className="text-xs" style={{ color: "rgba(247,247,247,0.35)" }}>
                   {handle}
                 </p>
               </div>
@@ -139,7 +139,7 @@ export function Contact() {
               size={16}
               weight="regular"
               className="opacity-0 transition-opacity group-hover:opacity-40"
-              style={{ color: "#eeeff4" }}
+              style={{ color: "#f7f7f7" }}
             />
           </a>
         ))}

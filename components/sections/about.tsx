@@ -15,7 +15,7 @@ const timeline = [
     company: "Synapsis",
     location: "Jakarta, INA",
     desc: "Leading product design direction at one of Indonesia's leading SaaS companies, driving consistency and scalability across product lines.",
-    accent: "#0e4ff6",
+    accent: "#3dc8ff",
   },
   {
     year: "Feb 2025 – May 2025",
@@ -23,7 +23,7 @@ const timeline = [
     company: "Synapsis",
     location: "Jakarta, INA",
     desc: "Elevated design standards and mentored junior designers while shipping high-impact features across the product suite.",
-    accent: "#0e4ff6",
+    accent: "#3dc8ff",
   },
   {
     year: "Apr 2024 – Feb 2025",
@@ -31,7 +31,7 @@ const timeline = [
     company: "Synapsis",
     location: "Jakarta, INA",
     desc: "Designed end-to-end product experiences for complex B2B healthcare SaaS workflows.",
-    accent: "#f46c38",
+    accent: "#faa200",
   },
   {
     year: "Feb 2024 – Apr 2024",
@@ -39,7 +39,7 @@ const timeline = [
     company: "Fullstack Agency",
     location: "Jakarta, INA",
     desc: "Led design within a fast-paced agency environment, overseeing multiple client projects simultaneously.",
-    accent: "#f46c38",
+    accent: "#faa200",
   },
   {
     year: "Jul 2021 – Feb 2024",
@@ -47,7 +47,7 @@ const timeline = [
     company: "Fullstack Agency",
     location: "Jakarta, INA",
     desc: "Delivered bespoke digital experiences across fintech, e-commerce, healthcare, and more.",
-    accent: "#c5ff41",
+    accent: "#16bf5e",
   },
   {
     year: "Jan 2021 – Jul 2021",
@@ -55,7 +55,7 @@ const timeline = [
     company: "Upwork / Freelance",
     location: "Remote",
     desc: "Worked with international clients to deliver polished UI designs for web and mobile products.",
-    accent: "#c5ff41",
+    accent: "#16bf5e",
   },
 ];
 
@@ -63,24 +63,24 @@ export function About() {
   return (
     <section id="about" className="py-20">
       <ScrollReveal direction="up">
-        <div className="mb-1 text-xs font-medium tracking-widest uppercase" style={{ color: "#f46c38" }}>
+        <div className="mb-1 text-xs font-medium tracking-widest uppercase" style={{ color: "#faa200" }}>
           Background
         </div>
         <h2
           className="mb-3 text-3xl font-semibold"
-          style={{ color: "#eeeff4", letterSpacing: "-0.02em" }}
+          style={{ color: "#f7f7f7", letterSpacing: "-0.02em" }}
         >
           About me
         </h2>
       </ScrollReveal>
 
       <ScrollReveal delay={0.1} direction="up">
-        <p className="mb-4 max-w-xl text-sm leading-relaxed" style={{ color: "rgba(238,239,244,0.5)" }}>
+        <p className="mb-4 max-w-xl text-sm leading-relaxed" style={{ color: "rgba(247,247,247,0.5)" }}>
           Product Designer with 4 years of experience balancing bold visuals with user-focused
           thinking. Always ahead of UX/UI trends — shaped by agency excellence,
           sharpened at one of Indonesia&apos;s leading SaaS companies.
         </p>
-        <p className="mb-14 max-w-xl text-sm leading-relaxed" style={{ color: "rgba(238,239,244,0.5)" }}>
+        <p className="mb-14 max-w-xl text-sm leading-relaxed" style={{ color: "rgba(247,247,247,0.5)" }}>
           I care deeply about systematizing complexity into clear, scalable components and
           creating human-centered experiences that feel intuitive and delightful.
         </p>
@@ -92,7 +92,7 @@ export function About() {
           <div key={category}>
             <p
               className="mb-3 text-[10px] font-medium uppercase tracking-[0.12em]"
-              style={{ color: "rgba(238,239,244,0.3)" }}
+              style={{ color: "rgba(247,247,247,0.3)" }}
             >
               {category}
             </p>
@@ -103,7 +103,7 @@ export function About() {
                   className="rounded-full px-2.5 py-0.5 text-xs"
                   style={{
                     backgroundColor: "rgba(255,255,255,0.04)",
-                    color: "rgba(238,239,244,0.55)",
+                    color: "rgba(247,247,247,0.55)",
                     border: "1px solid rgba(255,255,255,0.07)",
                   }}
                 >
@@ -119,7 +119,7 @@ export function About() {
       <ScrollReveal direction="up">
         <p
           className="mb-0 text-[10px] font-medium uppercase tracking-[0.12em]"
-          style={{ color: "rgba(238,239,244,0.3)" }}
+          style={{ color: "rgba(247,247,247,0.3)" }}
         >
           Experience
         </p>
@@ -137,7 +137,7 @@ export function About() {
             <span
               className="w-44 shrink-0 text-xs pt-0.5"
               style={{
-                color: "rgba(238,239,244,0.28)",
+                color: "rgba(247,247,247,0.28)",
                 fontFamily: "var(--font-mono), JetBrains Mono, monospace",
               }}
             >
@@ -152,13 +152,13 @@ export function About() {
                   style={{ backgroundColor: item.accent }}
                 />
                 <div>
-                  <p className="font-medium text-sm" style={{ color: "#eeeff4" }}>
+                  <p className="font-medium text-sm" style={{ color: "#f7f7f7" }}>
                     {item.role}
                   </p>
                   <p className="text-xs mb-1.5" style={{ color: item.accent }}>
                     {item.company} · {item.location}
                   </p>
-                  <p className="text-sm leading-relaxed" style={{ color: "rgba(238,239,244,0.45)" }}>
+                  <p className="text-sm leading-relaxed" style={{ color: "rgba(247,247,247,0.45)" }}>
                     {item.desc}
                   </p>
                 </div>
