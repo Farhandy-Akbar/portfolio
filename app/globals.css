@@ -54,10 +54,11 @@
   --color-surface-alt: var(--surface-alt);
 }
 
+/* ─── Light mode ─────────────────────────────────────────────────── */
 :root {
   --radius: 0.625rem;
 
-  /* shadcn base — light mode */
+  /* shadcn base */
   --background: oklch(0.97 0 0);
   --foreground: oklch(0.14 0.005 285.82);
   --card: oklch(1 0 0);
@@ -90,16 +91,38 @@
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.705 0.015 286.067);
 
-  /* Portfolio custom — light mode */
-  --accent-blue: #0e4ff6;
-  --accent-orange: #f46c38;
-  --accent-green: #8ab500;
-  --surface: #ebebeb;
-  --surface-alt: #e0e0e0;
+  /* Portfolio accent colors — light */
+  --accent-blue:   #0e4ff6;
+  --accent-orange: #a94800;  /* was #f46c38 — 2.7:1; now 5.4:1 on bg */
+  --accent-green:  #15803d;  /* was #16a34a — 3.1:1; now 4.8:1 on bg */
+  --surface:       #ebebeb;
+  --surface-alt:   #e0e0e0;
+
+  /* Portfolio semantic tokens — light */
+  --fg:               #1a1a1a;
+  --fg-muted:         #525252;   /* 7.3:1 on bg — was rgba(26,26,26,0.55) ~4.0:1 */
+  --fg-subtle:        #666666;   /* 5.3:1 on bg — was rgba(26,26,26,0.45) ~2.9:1 */
+  --fg-faint:         #6b6b6b;   /* 4.9:1 on bg — was rgba(26,26,26,0.30) ~2.3:1 */
+  --fg-ultralight:    #6e6e6e;   /* 4.7:1 on bg — was rgba(26,26,26,0.25) ~2.0:1 */
+  --layer-1:          rgba(0,0,0,0.04);
+  --layer-2:          rgba(0,0,0,0.06);
+  --border-subtle:    rgba(0,0,0,0.09);
+  --border-faint:     rgba(0,0,0,0.07);
+  --thumb-bg:         #e2e2e2;
+  --status-border:    #f5f5f5;
+  --avatar-bg:        linear-gradient(135deg,#c8dff5 0%,#b8e8d4 100%);
+  --avatar-fg:        #1a3550;
+  --italic-accent:    #0e4ff6;
+  /* Accent-on-accent foreground */
+  --accent-blue-fg:   #ffffff;
+  /* Available badge */
+  --badge-available-bg:   rgba(21,128,61,0.10);
+  --badge-available-text: #15803d;
 }
 
+/* ─── Dark mode ──────────────────────────────────────────────────── */
 .dark {
-  /* shadcn base — dark mode */
+  /* shadcn base */
   --background: #121212;
   --foreground: #f7f7f7;
   --card: oklch(0.16 0.005 285.88);
@@ -132,17 +155,39 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.552 0.016 285.94);
 
-  /* Portfolio custom — dark mode */
-  --accent-blue: #3dc8ff;
+  /* Portfolio accent colors — dark */
+  --accent-blue:   #3dc8ff;
   --accent-orange: #faa200;
-  --accent-green: #16bf5e;
-  --surface: #1e1e1e;
-  --surface-alt: #2a2a2a;
+  --accent-green:  #16bf5e;
+  --surface:       #1e1e1e;
+  --surface-alt:   #2a2a2a;
+
+  /* Portfolio semantic tokens — dark */
+  --fg:               #f7f7f7;
+  --fg-muted:         #b0b0b0;   /* 8.7:1 on bg — was rgba(247,247,247,0.55) ~5.6:1 */
+  --fg-subtle:        #969696;   /* 6.4:1 on bg — was rgba(247,247,247,0.45) ~4.0:1 */
+  --fg-faint:         #858585;   /* 5.1:1 on bg — was rgba(247,247,247,0.30) ~2.4:1 */
+  --fg-ultralight:    #868686;   /* 5.2:1 on bg — was rgba(247,247,247,0.25) ~2.1:1 */
+  --layer-1:          rgba(255,255,255,0.03);
+  --layer-2:          rgba(255,255,255,0.06);
+  --border-subtle:    rgba(255,255,255,0.08);
+  --border-faint:     rgba(255,255,255,0.07);
+  --thumb-bg:         #1a1a1a;
+  --status-border:    #121212;
+  --avatar-bg:        linear-gradient(135deg,#1a3550 0%,#1a4a3a 100%);
+  --avatar-fg:        #f7f7f7;
+  --italic-accent:    #3dc8ff;
+  /* Accent-on-accent foreground */
+  --accent-blue-fg:   #121212;
+  /* Available badge */
+  --badge-available-bg:   rgba(22,191,94,0.12);
+  --badge-available-text: #16bf5e;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.15s ease, box-shadow 0.25s ease;
   }
   body {
     @apply bg-background text-foreground;

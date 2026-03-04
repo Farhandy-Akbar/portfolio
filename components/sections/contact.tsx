@@ -45,16 +45,16 @@ export function Contact() {
   return (
     <section id="contact" className="py-20 pb-32">
       <ScrollReveal direction="up">
-        <div className="mb-1 text-xs font-medium tracking-widest uppercase" style={{ color: "#16bf5e" }}>
+        <div className="mb-1 text-xs font-medium tracking-widest uppercase" style={{ color: "var(--accent-green)" }}>
           Get in touch
         </div>
         <h2
           className="mb-3 text-3xl font-semibold"
-          style={{ color: "#f7f7f7", letterSpacing: "-0.02em" }}
+          style={{ color: "var(--fg)", letterSpacing: "-0.02em" }}
         >
           Contact
         </h2>
-        <p className="mb-12 max-w-lg text-sm leading-relaxed" style={{ color: "rgba(247,247,247,0.45)" }}>
+        <p className="mb-12 max-w-lg text-sm leading-relaxed" style={{ color: "var(--fg-subtle)" }}>
           Open to new opportunities, collaborations, or a friendly hello. Drop me a message
           and I&apos;ll get back to you promptly.
         </p>
@@ -65,21 +65,21 @@ export function Contact() {
         <div
           className="mb-10 flex flex-col gap-4 rounded-xl p-5 sm:flex-row sm:items-center sm:justify-between"
           style={{
-            backgroundColor: "rgba(255,255,255,0.03)",
-            border: "1px solid rgba(255,255,255,0.07)",
+            backgroundColor: "var(--layer-1)",
+            border: "1px solid var(--border-faint)",
           }}
         >
           <div>
             <p
               className="mb-0.5 text-[10px] font-medium uppercase tracking-widest"
-              style={{ color: "rgba(247,247,247,0.3)" }}
+              style={{ color: "var(--fg-faint)" }}
             >
               Email
             </p>
             <a
               href={`mailto:${EMAIL}`}
               className="text-sm font-medium transition-colors hover:opacity-80"
-              style={{ color: "#3dc8ff" }}
+              style={{ color: "var(--accent-blue)" }}
             >
               {EMAIL}
             </a>
@@ -89,9 +89,9 @@ export function Contact() {
             onClick={copyEmail}
             className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium transition-all hover:opacity-80"
             style={{
-              backgroundColor: "rgba(255,255,255,0.06)",
-              color: "rgba(247,247,247,0.6)",
-              border: "1px solid rgba(255,255,255,0.08)",
+              backgroundColor: "var(--layer-2)",
+              color: "var(--fg-muted)",
+              border: "1px solid var(--border-subtle)",
             }}
           >
             {copied ? (
@@ -118,19 +118,19 @@ export function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center justify-between border-t py-4 transition-all"
-            style={{ borderColor: "rgba(255,255,255,0.07)" }}
+            style={{ borderColor: "var(--border-faint)" }}
           >
             <div className="flex items-center gap-3">
               <Icon
                 size={16}
                 weight="regular"
-                style={{ color: "rgba(247,247,247,0.3)" }}
+                style={{ color: "var(--fg-faint)" }}
               />
               <div>
-                <p className="text-sm font-medium" style={{ color: "#f7f7f7" }}>
+                <p className="text-sm font-medium" style={{ color: "var(--fg)" }}>
                   {label}
                 </p>
-                <p className="text-xs" style={{ color: "rgba(247,247,247,0.35)" }}>
+                <p className="text-xs" style={{ color: "var(--fg-faint)" }}>
                   {handle}
                 </p>
               </div>
@@ -139,11 +139,11 @@ export function Contact() {
               size={16}
               weight="regular"
               className="opacity-0 transition-opacity group-hover:opacity-40"
-              style={{ color: "#f7f7f7" }}
+              style={{ color: "var(--fg)" }}
             />
           </a>
         ))}
-        <div className="h-px" style={{ backgroundColor: "rgba(255,255,255,0.07)" }} />
+        <div className="h-px" style={{ backgroundColor: "var(--border-faint)" }} />
       </StaggerReveal>
     </section>
   );

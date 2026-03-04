@@ -30,12 +30,12 @@ export function Sidebar() {
   return (
     <aside
       className="hidden md:flex sticky h-[calc(100vh-44px)] w-[300px] shrink-0 flex-col justify-between py-10 pl-10 pr-6"
-      style={{ top: "44px", borderRight: "1px solid rgba(255,255,255,0.06)" }}
+      style={{ top: "44px", borderRight: "1px solid var(--border-faint)" }}
     >
       <nav className="flex flex-col gap-1">
         <p
           className="mb-3 text-[10px] font-medium uppercase tracking-[0.12em]"
-          style={{ color: "rgba(247,247,247,0.35)" }}
+          style={{ color: "var(--fg-faint)" }}
         >
           Navigation
         </p>
@@ -44,20 +44,20 @@ export function Sidebar() {
             key={href}
             href={href}
             className="group flex items-center gap-2.5 py-1.5 text-sm transition-colors"
-            style={{ color: "rgba(247,247,247,0.5)" }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "#f7f7f7")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(247,247,247,0.5)")}
+            style={{ color: "var(--fg-muted)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--fg)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--fg-muted)")}
           >
             <Icon size={14} weight="regular" />
             {label}
           </a>
         ))}
 
-        <div className="my-6 h-px" style={{ backgroundColor: "rgba(255,255,255,0.06)" }} />
+        <div className="my-6 h-px" style={{ backgroundColor: "var(--border-faint)" }} />
 
         <p
           className="mb-3 text-[10px] font-medium uppercase tracking-[0.12em]"
-          style={{ color: "rgba(247,247,247,0.35)" }}
+          style={{ color: "var(--fg-faint)" }}
         >
           Connect
         </p>
@@ -68,9 +68,9 @@ export function Sidebar() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2.5 py-1.5 text-sm transition-colors"
-            style={{ color: "rgba(247,247,247,0.5)" }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "#f7f7f7")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(247,247,247,0.5)")}
+            style={{ color: "var(--fg-muted)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--fg)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--fg-muted)")}
           >
             <Icon size={14} weight="regular" />
             {label}
@@ -78,7 +78,7 @@ export function Sidebar() {
         ))}
       </nav>
 
-      <p className="text-[11px]" style={{ color: "rgba(247,247,247,0.25)" }}>
+      <p className="text-[11px]" style={{ color: "var(--fg-ultralight)" }}>
         © {new Date().getFullYear()} Farhandy Akbar
       </p>
     </aside>

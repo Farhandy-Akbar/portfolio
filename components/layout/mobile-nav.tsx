@@ -49,10 +49,13 @@ export function MobileNav() {
       <SheetContent
         side="left"
         className="w-64 pt-8"
-        style={{ backgroundColor: "#121212", borderRight: "1px solid rgba(255,255,255,0.06)" }}
+        style={{
+          backgroundColor: "var(--background)",
+          borderRight: "1px solid var(--border-faint)",
+        }}
       >
         <SheetHeader>
-          <SheetTitle className="text-left text-base" style={{ color: "#f7f7f7" }}>
+          <SheetTitle className="text-left text-base" style={{ color: "var(--fg)" }}>
             Farhandy Akbar
           </SheetTitle>
         </SheetHeader>
@@ -63,16 +66,16 @@ export function MobileNav() {
               href={href}
               onClick={() => setOpen(false)}
               className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm transition-colors"
-              style={{ color: "rgba(247,247,247,0.55)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#f7f7f7")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(247,247,247,0.55)")}
+              style={{ color: "var(--fg-muted)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--fg)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--fg-muted)")}
             >
               <Icon size={14} weight="regular" />
               {label}
             </a>
           ))}
         </nav>
-        <div className="my-6 h-px" style={{ backgroundColor: "rgba(255,255,255,0.07)" }} />
+        <div className="my-6 h-px" style={{ backgroundColor: "var(--border-faint)" }} />
         <div className="flex flex-col gap-0.5">
           {socialLinks.map(({ icon: Icon, label, href }) => (
             <a
@@ -81,9 +84,9 @@ export function MobileNav() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm transition-colors"
-              style={{ color: "rgba(247,247,247,0.55)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#f7f7f7")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(247,247,247,0.55)")}
+              style={{ color: "var(--fg-muted)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--fg)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--fg-muted)")}
             >
               <Icon size={14} weight="regular" />
               {label}

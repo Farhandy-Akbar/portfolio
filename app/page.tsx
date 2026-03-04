@@ -9,9 +9,9 @@ export default function Home() {
     <>
       <Hero />
       <Separator />
-      <Work />
-      <Separator />
       <About />
+      <Separator />
+      <Work />
       <Separator />
       <Contact />
     </>
